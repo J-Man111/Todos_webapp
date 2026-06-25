@@ -1,4 +1,4 @@
-import streamlit as stream
+import streamlit as st
 import functions
 
 todos = functions.get_todos()
@@ -9,7 +9,7 @@ def add_todo():
     functions.write_todos(todos)
 
 
-stream.title("My Todo App")
+st.title("My Todo App")
 
 
 for index, todo in enumerate(todos):
@@ -18,7 +18,7 @@ for index, todo in enumerate(todos):
         todos.pop(index)
         functions.write_todos(todos)
         del st.session_state[todo]
-        stream.rerun()
+        st.rerun()
 
-stream.text_input(label=" ", placeholder="Add new todo...",
+st.text_input(label=" ", placeholder="Add new todo...",
               on_change=add_todo, key='new_todo')
