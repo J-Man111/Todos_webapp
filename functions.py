@@ -1,5 +1,3 @@
-import time
-import ast
 import os
 
 FILEPATH = "todos.txt"
